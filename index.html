@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div class="transparent-container">
+        <div class="timer-wrapper">
+            <div class="title">
+                <input type="text" placeholder="Timer Name" class="timer-title">
+            </div>
+            <div class="timer">
+                <div class="time-unit"><span class="days">00</span><span>Days</span></div>
+                <div class="time-unit"><span class="hours">00</span><span>Hours</span></div>
+                <div class="time-unit"><span class="minutes">00</span><span>Minutes</span></div>
+                <div class="time-unit"><span class="seconds">00</span><span>Seconds</span></div>
+            </div>
+            <div class="input-container">
+                <div class="date">
+                    <input type="date" class="date-input">
+                </div>
+                <div class="time">
+                    <input type="time" class="time-input">
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="button start-btn">Start</button>
+                <button class="button stop-btn">Stop</button>
+                <button class="button reset-btn">Reset</button>
+                <button class="delete-btn">🗑️</button>
+            </div>
+            <div class="message"></div>
+        </div>
+    </div>
+    <button class="add-timer-btn">+</button>
+    <audio id="timer-sound" src="assets/beep.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

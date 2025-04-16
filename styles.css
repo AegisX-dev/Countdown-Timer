@@ -1,0 +1,288 @@
+/* CSS Variables for Consistency */
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --accent: #e94560;
+    --text: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg)), url('assets/BG.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    color: var(--text);
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Container */
+.transparent-container {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in;
+    margin-bottom: 20px; /* Add spacing between containers and add button */
+}
+
+/* Timer Wrapper */
+.timer-wrapper {
+    width: 95%;
+    height: auto;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Title */
+.title input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.title input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Timer Display */
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', monospace;
+    color: var(--text);
+    margin: 15px 0;
+}
+
+.time-unit {
+    background: var(--card-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.time-unit span:first-child {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+.time-unit span:last-child {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.running .time-unit span:first-child {
+    animation: pulse 1s infinite;
+}
+
+/* Inputs */
+.input-container {
+    width: 80%; /* Reduced from 90% to center more */
+    display: flex;
+    justify-content: center; /* Changed from space-between to center */
+    gap: 10px;
+    margin: 15px 0;
+    margin-left: auto;
+    margin-right: auto; /* Ensures centering */
+}
+
+.date, .time {
+    width: 45%; /* Reduced from 46% to account for gap and center better */
+    position: relative;
+    margin: 0 auto; /* Centers each input within its space */
+}
+
+.date input[type="date"], .time input[type="time"] {
+    width: 100%;
+    padding: 7px;
+    font-size: 1rem;
+    color: var(--text);
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 5px;
+    padding-right: 30px;
+}
+
+.date input[type="date"]::-webkit-calendar-picker-indicator,
+.time input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 10px;
+    width: 20px; /* Adjusted back to 20px for proper alignment with SVG */
+    height: 20px;
+    cursor: pointer;
+}
+
+.date::after, .time::after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.date::after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
+.time::after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>');
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    background: linear-gradient(135deg, var(--accent), #0f3460);
+}
+
+.stop-btn {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--accent);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2);
+}
+
+.add-timer-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    color: var(--text);
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.add-timer-btn:hover {
+    background-color: var(--accent);
+    transform: rotate(90deg);
+}
+
+/* Message */
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px var(--accent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .transparent-container { padding: 15px; }
+    .timer { gap: 10px; }
+    .time-unit { padding: 8px 12px; }
+    .time-unit span:first-child { font-size: 1.5rem; }
+    .input-container { flex-direction: column; gap: 15px; }
+    .date, .time { width: 100%; margin: 0 auto; } /* Centered in column layout */
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.5rem; }
+    .timer { flex-wrap: wrap; }
+    .time-unit { min-width: 60px; }
+    .time-unit span:first-child { font-size: 1.25rem; }
+    .button { padding: 8px 15px; font-size: 0.9rem; }
+    .add-timer-btn { width: 40px; height: 40px; font-size: 1.5rem; }
+}
